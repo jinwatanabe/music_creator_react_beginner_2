@@ -1,6 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 
+type Music = {
+  id: string;
+  title: string;
+  artist: string;
+  audioUrl: string;
+  coverUrl: string;
+};
+
 function CreatePage() {
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
@@ -36,7 +44,7 @@ function CreatePage() {
       alert("音楽を生成してから保存してください");
       return;
     }
-    const musicData = {
+    const musicData: Music = {
       id: Date.now().toString(),
       title: title,
       artist: "AI Generated",
